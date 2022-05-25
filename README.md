@@ -7,7 +7,8 @@ This is a side project that I have been working on for practice purposes.It scra
 
 1. _C#_
 2. _Blazor Webassembly_
-3. _AngleSharp (Scraping - library)_
-4. _MS SQL_
-5. _Entity Framework Core_
-6. _Bootstrap_
+3. _MVC_
+4. _AngleSharp (Scraping - library)_
+5. _MS SQL_
+6. _Entity Framework Core_
+7. _Bootstrap_
