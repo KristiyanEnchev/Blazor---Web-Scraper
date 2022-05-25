@@ -1,0 +1,27 @@
+﻿@page "/"
+
+@if (CategoryUrl != null)
+{
+    <ProductsList />
+}
+else
+{
+    <HomeView />
+}
+
+
+@*else
+            { <AuthorizeView>
+        <NotAuthorized>
+            <h1>Welcome to Blazing Shop!</h1>
+        </NotAuthorized>
+        <Authorized>
+            <h1>Welcome back, @LocalStorage.GetItemAsString("username")!</h1>
+        </Authorized>
+    </AuthorizeView>
+                            <HomeView />}*@
+
+@code
+{ [Parameter]
+    public string CategoryUrl { get; set; }
+}

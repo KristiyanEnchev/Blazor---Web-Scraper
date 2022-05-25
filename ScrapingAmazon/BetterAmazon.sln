@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32002.261
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BetterAmazon.Server", "BetterAmazon\Server\BetterAmazon.Server.csproj", "{B6E1E2D2-D553-4DEB-8689-D90B8113641C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BetterAmazon.Client", "BetterAmazon\Client\BetterAmazon.Client.csproj", "{0CAB1DD5-0992-4CB7-92F6-2CC4774992A2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BetterAmazon.Data", "BetterAmazon\Shared\BetterAmazon.Data.csproj", "{6AC6E298-CB46-4E82-8A8F-62EDB874383C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BetterAmazon.Web", "BetterAmazon.Web", "{984336F3-5BA3-4C45-813F-3538027E57AC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BetterAmazon.Scrapers", "BetterAmazon.BooksScraper\BetterAmazon.Scrapers.csproj", "{816531E5-6D98-4747-B2AA-B47348A0FE86}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BetterAmazon.Models.DTO", "BetterAmazon.Models.DTOs\BetterAmazon.Models.DTO.csproj", "{A75868D4-4C18-4819-A40E-6011C3AFEA1C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BetterAmazon.Services", "BetterAmazon.Services\BetterAmazon.Services.csproj", "{0DB670EE-54E0-4762-961D-851C2EBF2CE4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B6E1E2D2-D553-4DEB-8689-D90B8113641C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6E1E2D2-D553-4DEB-8689-D90B8113641C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6E1E2D2-D553-4DEB-8689-D90B8113641C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6E1E2D2-D553-4DEB-8689-D90B8113641C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CAB1DD5-0992-4CB7-92F6-2CC4774992A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CAB1DD5-0992-4CB7-92F6-2CC4774992A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CAB1DD5-0992-4CB7-92F6-2CC4774992A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CAB1DD5-0992-4CB7-92F6-2CC4774992A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6AC6E298-CB46-4E82-8A8F-62EDB874383C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6AC6E298-CB46-4E82-8A8F-62EDB874383C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6AC6E298-CB46-4E82-8A8F-62EDB874383C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6AC6E298-CB46-4E82-8A8F-62EDB874383C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{816531E5-6D98-4747-B2AA-B47348A0FE86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{816531E5-6D98-4747-B2AA-B47348A0FE86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{816531E5-6D98-4747-B2AA-B47348A0FE86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{816531E5-6D98-4747-B2AA-B47348A0FE86}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A75868D4-4C18-4819-A40E-6011C3AFEA1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A75868D4-4C18-4819-A40E-6011C3AFEA1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A75868D4-4C18-4819-A40E-6011C3AFEA1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A75868D4-4C18-4819-A40E-6011C3AFEA1C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DB670EE-54E0-4762-961D-851C2EBF2CE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DB670EE-54E0-4762-961D-851C2EBF2CE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DB670EE-54E0-4762-961D-851C2EBF2CE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DB670EE-54E0-4762-961D-851C2EBF2CE4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B6E1E2D2-D553-4DEB-8689-D90B8113641C} = {984336F3-5BA3-4C45-813F-3538027E57AC}
+		{0CAB1DD5-0992-4CB7-92F6-2CC4774992A2} = {984336F3-5BA3-4C45-813F-3538027E57AC}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0D38C34B-FBF9-413C-A473-7992B3749983}
+	EndGlobalSection
+EndGlobal

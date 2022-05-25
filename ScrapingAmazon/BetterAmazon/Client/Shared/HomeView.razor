@@ -1,0 +1,78 @@
+﻿@inject IProductService ProductService
+
+@if (best.Keys == null && best.Values == null)
+{
+                                                                        <LoadingScreen />
+}
+else
+{
+    @foreach (KeyValuePair<int, List<GetAllProductsDto>> products in best)
+    {
+        @if (products.Value.Count() > 0)
+        {
+            @switch (products.Key)
+            {
+                case 1: categoryName = "Books"; break;
+                case 2: categoryName = "Software"; break;
+                case 3: categoryName = "Video-Games"; break;
+
+            }
+                                                                                                                                                                                                <h2 style="text-align: center; color: white;">The Best 3 @categoryName  By Avarage Rating</h2>
+                                                                                                                                                                                                <div class="row mb-4">
+                @foreach (var product in products.Value)
+                {
+                                                                                                                                                                                                                                                                <div class="media my-3 col-md-4">
+                                                                                                                                                                                                                                                                    <div class="media-img-wrapper mr-2">
+                                                                                                                                                                                                                                                                        <a href="/product/@product.Id">
+                                                                                                                                                                                                                                                                            <img class="media-img" src="@product.ImageSource" alt="@product.Title" />
+                                                                                                                                                                                                                                                                        </a>
+                                                                                                                                                                                                                                                                        <div class="media-body">
+                                                                                                                                                                                                                                                                            <a href="/product/@product.Id">
+                                                                                                                                                                                                                                                                                <h4 class="mb-0">@product.Title</h4>
+                                                                                                                                                                                                                                                                            </a>
+                                                                                                                                                                                                                                                                        </div>
+                                                                                                                                                                                                                                                                        <div class="star flex">
+                                @for (int i = 1; i <= Math.Floor(product.Rating); i++)
+                                {
+                                                                                                                                                                                                                                                                                                                                            <i class="fas fa-star" style=" color: #f7d833; font-size: 15px; margin-right: 5px; margin-top: 5px; margin-bottom: 5px;"></i>
+                                    if (i < 5 && i == Math.Floor(product.Rating))
+                                    {
+                                        for (int x = i; x < 5; x++)
+                                        {
+                                            if (product.Rating % 1 == 0)
+                                            {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             <i class="far fa-star" style=" color: #f7d833; font-size: 15px; margin-right: 5px; margin-top: 5px; margin-bottom: 5px;"></i>
+                                            }
+                                            else
+                                            {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <i class="fas fa-star-half-alt" style=" color: #f7d833; font-size: 15px; margin-right: 5px; margin-top: 5px; margin-bottom: 5px;"></i>
+                                            }
+                                        }
+                                    }
+                                }
+                                                                                                                                                                                                                                                                            <div class="rating-text">@product.Rating / 5.00</div>
+                                                                                                                                                                                                                                                                        </div>
+                                                                                                                                                                                                                                                                    </div>
+                                                                                                                                                                                                                                                                </div>
+                }
+                                                                                                                                                                                                </div>
+                                                                                                                                                                                                <br>
+                                                                                                                                                                                                <br>
+                                                                                                                                                                                                <br>
+                                                                                                                                                                                                <br>
+        }
+    }
+}
+
+
+@code {
+
+    Dictionary<int, List<GetAllProductsDto>> best = new Dictionary<int, List<GetAllProductsDto>>();
+
+    private string categoryName = string.Empty;
+
+    protected override async Task OnInitializedAsync()
+    {
+        best = await ProductService.ImportBest();
+    }
+}

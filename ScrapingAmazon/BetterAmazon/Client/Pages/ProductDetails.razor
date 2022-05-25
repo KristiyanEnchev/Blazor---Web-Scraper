@@ -1,0 +1,88 @@
+﻿@page "/{id:int}"
+@inject IProductService ProductService
+
+@if (product == null)
+{
+                <LoadingScreen />
+}
+else
+{
+                <div class="views">
+                    <i class="oi oi-eye"></i>
+                </div>
+                <div class="media">
+                    <div class="media-img-big-wrapper mr-2">
+                        <img class="media-img-big" src="@product.ImageSource" alt="@product.Title" />
+                    </div>
+                    <div class="media-body">
+                        <h2 class="mb-0" style="color: #f7d833">@product.Title</h2>
+                        <p class="some-text">@product.ShortDescription</p>
+                        <div class="form-group">
+                            <div class="mb-3" style="color: white;">
+                                Now ! :
+                                <var class="price h4" style="padding-right: 3rem;">$@product.Price</var>
+                                From :
+                                <var class="price h4" style="text-decoration: line-through;">$@product.InitialPrice</var>
+                            </div>
+                        </div>
+                        <br>
+                        <button class="btn btn-primary"><i class="oi oi-cart"></i>&nbsp;&nbsp;&nbsp;Add to Cart</button>
+                        <br>
+                        <br>
+                        <br>
+                        <div class="star flex">
+                @for (int i = 1; i <= Math.Floor(product.Rating); i++)
+                {
+                                            <i class="fas fa-star" style=" color: #f7d833; font-size: 15px; margin-right: 5px; margin-top: 5px; margin-bottom: 5px;"></i>
+                    if (i < 5 && i == Math.Floor(product.Rating))
+                    {
+                        for (int x = i; x < 5; x++)
+                        {
+                            if (product.Rating % 1 == 0)
+                            {
+                                                                                            <i class="far fa-star" style=" color: #f7d833; font-size: 15px; margin-right: 5px; margin-top: 5px; margin-bottom: 5px;"></i>
+                            }
+                            else
+                            {
+                                                                                            <i class="fas fa-star-half-alt" style=" color: #f7d833; font-size: 15px; margin-right: 5px; margin-top: 5px; margin-bottom: 5px;"></i>
+                            }
+                        }
+                    }
+                }
+                            <div calss="rating-text" style="color: white;">@product.Rating / 5.00</div>
+                        </div>
+                        <br>
+                        <br>
+                        <a class="btn btn-dark" href="@product.ProductSourceUrl">Amazon Page</a>
+                    </div>
+
+                </div>
+}
+
+@code {
+    private GetAllProductsDto product = new GetAllProductsDto();
+    private string categoryName = string.Empty;
+
+    [Parameter]
+    public int Id { get; set; }
+
+
+    protected override async Task OnParametersSetAsync()
+    {
+        var CategoryUrl = "video-games";
+
+        product = await ProductService.GetProduct(CategoryUrl, Id);
+        //switch (product.CategoryId)
+        //{
+        //    case 1:
+        //        categoryName = "Books";
+        //        break;
+        //    case 2:
+        //        categoryName = "Software";
+        //        break;
+        //    case 3:
+        //        categoryName = "Video-Games";
+        //        break;
+        //}
+    }
+}

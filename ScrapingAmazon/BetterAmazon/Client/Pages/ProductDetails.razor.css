@@ -1,0 +1,141 @@
+.media-img {
+    max-height: 200px;
+    max-width: 200px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    transition: transform .2s;
+}
+
+.media-img-big {
+    max-height: 500px;
+    max-width: 500px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+}
+
+.media-img-wrapper {
+    width: 200px;
+    height: 200px;
+    text-align: center;
+}
+
+.media-img-big-wrapper {
+    /*width: 500px;*/
+    /*width: auto;*/
+    width: 300px;
+    height: 500px;
+    text-align: center;
+}
+
+.media-img:hover {
+    transform: scale(1.1);
+}
+
+.original-price {
+    text-decoration: line-through;
+}
+
+.price {
+    color: green;
+}
+
+.rating-text {
+    color: white;
+}
+
+.media-img-big {
+    width: 300px;
+    border: solid;
+    border-color: gold;
+    border-radius: 10%;
+}
+
+.media-body {
+    padding-left: 2rem;
+    margin-top: 3rem;
+}
+
+.some-text {
+    color: white;
+}
+
+@media (max-width: 1023.98px) {
+    .media {
+        flex-direction: column;
+    }
+
+    .media-img-big-wrapper, .media-img-wrapper {
+        width: 100%;
+        height: auto;
+        text-align: center;
+    }
+
+    .media-img-big {
+        max-width: 300px;
+    }
+}
+
+
+
+/*.gallery-wrap .img-big-wrap {
+    margin-bottom: 10px;
+    border-radius: 0.37rem;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+    .gallery-wrap .img-big-wrap a {
+        text-align: center;
+        display: block;
+    }
+
+    .gallery-wrap .img-big-wrap img {
+        height: 450px;
+        width: auto;
+        display: inline-block;
+        cursor: -webkit-zoom-in;
+        cursor: zoom-in;
+    }
+
+.gallery-wrap .thumbs-wrap {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+    .gallery-wrap .thumbs-wrap .item-thumb {
+        width: 60px;
+        height: 60px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        margin: 3px;
+        display: inline-block;
+        overflow: hidden;
+    }
+
+    .gallery-wrap .thumbs-wrap img {
+        max-width: 100%;
+        max-height: 100%;
+        -o-object-fit: cover;
+        object-fit: cover;
+        border-radius: 4px;
+        cursor: -webkit-zoom-in;
+        cursor: zoom-in;
+    }
+
+        .gallery-wrap .thumbs-wrap img:hover {
+            -webkit-filter: brightness(1.1);
+            filter: brightness(1.1);
+            cursor: -webkit-zoom-in;
+            cursor: zoom-in;
+        }
+
+.item-option-select {
+    margin-bottom: 1rem;
+    display: inline-block;
+    margin-right: 15px;
+}
+
+    .item-option-select .btn {
+        min-width: 80px;
+    }
+*/
