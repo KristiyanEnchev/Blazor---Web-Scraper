@@ -1,0 +1,78 @@
+﻿@inject ICategoryService CategoryService
+
+@*<li class="dropdown-divider"></li>
+    <li class="nav-item px-3">
+        <AuthorizeView>
+            <NotAuthorized>
+                <NavLink class="nav-link" href="login">
+                    <span class="oi oi-account-login" aria-hidden="true"></span> Login
+                </NavLink>
+            </NotAuthorized>
+            <Authorized>
+                <a class="nav-link" @onclick="Logout" style="cursor: pointer">
+                    <span class="oi oi-account-logout" aria-hidden="true"></span> Logout
+                </a>
+            </Authorized>
+        </AuthorizeView>
+    </li>*@
+
+
+
+<nav class="navbar navbar-main navbar-expand-md border-bottom">
+        <div class="top-row pl-4 navbar navbar-dark">
+            <a class="navbar-brand" href="">Better Amazon</a>
+            <button class="navbar-toggler" @onclick="ToggleNavMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    <div class="container">
+
+        <div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
+            <ul class="nav navbar-nav mr-auto">
+                <li class="nav-item px-3">
+                    <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                        <span class="oi oi-home" aria-hidden="true"></span> Home
+                    </NavLink>
+                </li>
+                @foreach (var category in CategoryService.Categories)
+                {
+                    <li class="nav-item px-3">
+                        <NavLink class="nav-link" href="@category.Url">
+                            <span class="oi oi-@category.Icon" aria-hidden="true"></span> @category.Name
+                        </NavLink>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+
+
+@code {
+    bool collapseNavMenu = true;
+
+    string baseMenuClass = "navbar-collapse d-sm-inline-flex flex-sm-row-reverse";
+
+    string NavMenuCssClass => baseMenuClass + (collapseNavMenu ? " collapse" : "");
+
+    void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+
+    private List<GetCategoryDto> categories;
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        categories = await CategoryService.LoadCategories();
+    }
+
+    //private async void Logout()
+    //{
+    //    await LocalStorage.RemoveItemAsync("username");
+    //    await AuthStateProvider.GetAuthenticationStateAsync();
+    //}
+}

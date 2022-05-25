@@ -1,0 +1,130 @@
+﻿@page "/{categoryurl}"
+@inject IProductService ProductService
+@inject ICategoryService CategoryService
+@inject IBookScrapingService ScrapingService
+@inject IVideoGameScrapingService GameScrapingService
+@inject ISoftwareScrapingService SoftwareScrapingService
+@implements IDisposable
+
+
+<h2>
+    Welcome to the @CategoryUrl.ToUpper() section!
+    @if (CategoryUrl == "books")
+    {
+            <button class="btn btn-danger" @onclick="Scrape">Scrape Books</button>
+    }
+    else if (CategoryUrl == "video-games")
+    {
+            <button class="btn btn-danger" @onclick="ScrapeGames">Scrape VideoGames</button>
+    }
+    else if (CategoryUrl == "software")
+    {
+             <button class="btn btn-danger" @onclick="ScrapeSoftware">Scrape Software</button>
+    }
+</h2>
+
+@if (products == null)
+{
+        <LoadingScreen />
+}
+else
+{
+        <div class="container">
+            <div class="row">
+            @foreach (var product in ProductService.Products)
+            {
+                    <div class="news col-mb-2 m-3">
+                        <figure class="article media-img-wrapper">
+                            <img src="@product.ImageSource" />
+                            <a href="/@CategoryUrl/@product.Id">
+                                <figcaption>
+                                    <h3>@product.Title</h3>
+                                    <br />
+                                    <div>
+                                        <div>
+                                            Get it now for :
+                                        @product.Price
+                                        </div>
+                                        <br />
+                                        <div style="text-decoration: line-through;">
+                                            From :
+                                        @product.InitialPrice
+                                        </div>
+                                    </div>
+                                    <div class="star flex">
+                                    @for (int i = 1; i <= Math.Floor(product.Rating); i++)
+                                    {
+                                        <i class="fas fa-star" style=" color: #f7d833; font-size: 15px; margin-right: 5px; margin-top: 5px; margin-bottom: 5px;"></i>
+                                        if (i < 5 && i == Math.Floor(product.Rating))
+                                        {
+                                            for (int x = i; x < 5; x++)
+                                            {
+                                                if (product.Rating % 1 == 0)
+                                                {
+                                                    <i class="far fa-star" style=" color: #f7d833; font-size: 15px; margin-right: 5px; margin-top: 5px; margin-bottom: 5px;"></i>
+                                                }
+                                                else
+                                                {
+                                                    <i class="fas fa-star-half-alt" style=" color: #f7d833; font-size: 15px; margin-right: 5px; margin-top: 5px; margin-bottom: 5px;"></i>
+                                                }
+                                            }
+                                        }
+                                    }
+                                        <div>@product.Rating / 5.00</div>
+                                    </div>
+                                </figcaption>
+                            </a>
+                        </figure>
+                    </div>
+            }
+            </div>
+        </div>
+}
+
+@code {
+    [Parameter]
+    public string CategoryUrl { get; set; }
+
+    private GetCategoryDto category = null;
+
+    private List<GetAllProductsDto> products;
+
+    protected override async Task OnParametersSetAsync()
+    {
+        products = await ProductService.LoadProducts(CategoryUrl);
+
+        if (CategoryUrl != null)
+        {
+            category = CategoryService.Categories.FirstOrDefault(c => c.Url.ToLower().Equals(CategoryUrl.ToLower()));
+        }
+        else
+        {
+            category = null;
+        }
+    }
+
+    protected override void OnInitialized()
+    {
+        ProductService.OnChange += StateHasChanged;
+    }
+
+    public void Dispose()
+    {
+        ProductService.OnChange -= StateHasChanged;
+    }
+
+    private void Scrape()
+    {
+        ScrapingService.ScrapeBooks();
+    }
+
+    private void ScrapeGames()
+    {
+        GameScrapingService.ScrapeGames();
+    }
+
+    private void ScrapeSoftware()
+    {
+        SoftwareScrapingService.ScrapeSoftware();
+    }
+}
