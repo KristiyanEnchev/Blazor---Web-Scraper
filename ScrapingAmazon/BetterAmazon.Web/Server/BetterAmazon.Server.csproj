@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<TargetFramework>net5.0</TargetFramework>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="5.0.13" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.13">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\BetterAmazon.Data\BetterAmazon.Data.csproj" />
+		<ProjectReference Include="..\..\BetterAmazon.Services\BetterAmazon.Services.csproj" />
+		<ProjectReference Include="..\Client\BetterAmazon.Client.csproj" />
+	</ItemGroup>
+
+
+</Project>
