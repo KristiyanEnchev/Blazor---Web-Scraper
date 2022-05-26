@@ -1,18 +1,18 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net5.0</TargetFramework>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="AutoMapper" Version="10.1.1" />
-    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="AutoMapper" Version="10.1.1" />
+		<PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\BetterAmazon.BooksScraper\BetterAmazon.Scrapers.csproj" />
-    <ProjectReference Include="..\BetterAmazon.Models.DTOs\BetterAmazon.Models.DTO.csproj" />
-    <ProjectReference Include="..\BetterAmazon\Shared\BetterAmazon.Data.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\BetterAmazon.Data\BetterAmazon.Data.csproj" />
+		<ProjectReference Include="..\BetterAmazon.Models.DTOs\BetterAmazon.Models.DTO.csproj" />
+		<ProjectReference Include="..\BetterAmazon.Scrapers\BetterAmazon.Scrapers.csproj" />
+	</ItemGroup>
 
 </Project>

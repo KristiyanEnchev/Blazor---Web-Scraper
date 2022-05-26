@@ -5,7 +5,6 @@
     using System.Threading.Tasks;
 
     using AutoMapper;
-
     using BetterAmazon.Data;
     using BetterAmazon.Data.Models;
     using BetterAmazon.Models.DTO.BooksScraperDTO;
