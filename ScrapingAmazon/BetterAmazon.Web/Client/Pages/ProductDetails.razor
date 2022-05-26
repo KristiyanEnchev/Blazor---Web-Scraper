@@ -1,4 +1,4 @@
-﻿@page "/{id:int}"
+﻿@page "/{categoryurl}/{id:int}"
 @inject IProductService ProductService
 
 @if (product == null)
@@ -64,14 +64,15 @@ else
     private string categoryName = string.Empty;
 
     [Parameter]
+    public string CategoryUrl { get; set; }
+    [Parameter]
     public int Id { get; set; }
 
 
     protected override async Task OnParametersSetAsync()
     {
-        var CategoryUrl = "VideoGames";
-
         product = await ProductService.GetProduct(CategoryUrl, Id);
+
         switch (product.CategoryId)
         {
             case 1:

@@ -42,7 +42,7 @@
             {
                 controllerName = "Books";
             }
-            else if (categoryUrl.ToLower() == "videogames")
+            else if (categoryUrl.ToLower() == "video-games")
             {
                 controllerName = "VideoGames";
             }
