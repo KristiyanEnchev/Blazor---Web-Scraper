@@ -38,15 +38,15 @@
         public async Task<GetAllProductsDto> GetProduct(string categoryUrl, int id)
         {
             string controllerName = string.Empty;
-            if (categoryUrl == "books")
+            if (categoryUrl.ToLower() == "books")
             {
                 controllerName = "Books";
             }
-            else if (categoryUrl == "video-games")
+            else if (categoryUrl.ToLower() == "videogames")
             {
                 controllerName = "VideoGames";
             }
-            else if (categoryUrl == "software")
+            else if (categoryUrl.ToLower() == "software")
             {
                 controllerName = "Software";
             }

@@ -18,8 +18,9 @@
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<GetAllProductsDto>> GetProduct(string categoryUrl, int id)
+        public async Task<ActionResult<GetAllProductsDto>> GetProduct(int id)
         {
+            string categoryUrl = "Software";
             return Ok(await _productService.GetProduct(categoryUrl, id));
         }
     }

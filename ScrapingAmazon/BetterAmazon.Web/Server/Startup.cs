@@ -1,17 +1,17 @@
 namespace BetterAmazon.Server
 {
-    using BetterAmazon.Data;
-    using BetterAmazon.Services.ServerServices.ScrapingService.VideoGameScraping;
-    using BetterAmazon.Services.ServerServices.CategoryService;
-    using BetterAmazon.Services.ServerServices.ProductService;
-    using BetterAmazon.Services.ServerServices.ScrapingService.BookScraping;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Hosting;
-    using Microsoft.OpenApi.Models;
+
+    using BetterAmazon.Data;
+    using BetterAmazon.Services.ServerServices.ScrapingService.VideoGameScraping;
+    using BetterAmazon.Services.ServerServices.CategoryService;
+    using BetterAmazon.Services.ServerServices.ProductService;
+    using BetterAmazon.Services.ServerServices.ScrapingService.BookScraping;
     using BetterAmazon.Services.ServerServices.ScrapingService.SoftwareScraping;
 
     public class Startup

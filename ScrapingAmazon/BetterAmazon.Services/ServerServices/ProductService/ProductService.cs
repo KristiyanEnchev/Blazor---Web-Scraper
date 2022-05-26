@@ -69,7 +69,7 @@
                .ProjectTo<GetAllProductsDto>(this._mapper.ConfigurationProvider)
                .FirstOrDefaultAsync(x => x.Id == id);
             }
-            else if (categoryUrl.ToLower() == "video-games")
+            else if (categoryUrl.ToLower() == "videogames")
             {
                 product = await _context.Games
                 .ProjectTo<GetAllProductsDto>(this._mapper.ConfigurationProvider)
@@ -122,21 +122,21 @@
             var books = await _context.Books.
                 ProjectTo<GetAllProductsDto>(this._mapper.ConfigurationProvider)
                 .Where(x => x.CategoryId == 1)
-                .OrderBy(x => x.Rating)
+                .OrderByDescending(x => x.Rating)
                 .Take(3)
                 .ToListAsync();
 
             var software = await _context.Softwares.
                 ProjectTo<GetAllProductsDto>(this._mapper.ConfigurationProvider)
                 .Where(x => x.CategoryId == 2)
-                .OrderBy(x => x.Rating)
+                .OrderByDescending(x => x.Rating)
                 .Take(3)
                 .ToListAsync();
 
             var games = await _context.Games.
                 ProjectTo<GetAllProductsDto>(this._mapper.ConfigurationProvider)
                 .Where(x => x.CategoryId == 3)
-                .OrderBy(x => x.Rating)
+                .OrderByDescending(x => x.Rating)
                 .Take(3)
                 .ToListAsync();
 
