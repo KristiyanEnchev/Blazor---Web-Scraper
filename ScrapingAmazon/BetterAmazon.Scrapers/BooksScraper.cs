@@ -84,7 +84,6 @@
 
         private static string GetBookUrl(AngleSharp.Dom.IElement book, string baseUrl)
         {
-            //var link = book.QuerySelector(".a-link-normal").GetAttribute("href");
             var completeLink = string.Empty;
             var anchorSelector = ".a-link-normal";
             var anchorElement = book.QuerySelector(anchorSelector);
@@ -135,7 +134,7 @@
         private static string GetBookAuthor(AngleSharp.Dom.IElement bookCard)
         {
             var author = string.Empty;
-            var titleSelector = ".a-section .a-spacing-none .s-padding-right-small .s-title-instructions-style";
+            var titleSelector = ".s-title-instructions-style";
             var titleElement = bookCard.QuerySelector(titleSelector);
 
             if (titleElement == null)
@@ -143,7 +142,7 @@
                 return author;
             }
 
-            var anchorSelector = ".a-size-base .a-link-normal .s-underline-text .s-underline-link-text .s-link-style";
+            var anchorSelector = ".a-link-normal";
             var authorAndPublisherElement = titleElement.QuerySelectorAll(anchorSelector);
 
             if (authorAndPublisherElement == null)
@@ -151,8 +150,7 @@
                 return author;
             }
 
-            var book = authorAndPublisherElement[0].TextContent.Split("| ", StringSplitOptions.RemoveEmptyEntries).ToArray();
-            author = book[0].Substring(3);
+            author = authorAndPublisherElement[1].InnerHtml;
             return author;
         }
 
@@ -169,7 +167,7 @@
 
         private static string[] GetBooksPrice(AngleSharp.Dom.IElement book)
         {
-            var selector = ".a-section .a-spacing-none .a-spacing-top-small .s-price-instructions-style";
+            var selector = ".s-price-instructions-style";
             var pricesElement = book.QuerySelector(selector);
 
             var bookDiscountePrice = string.Empty;
